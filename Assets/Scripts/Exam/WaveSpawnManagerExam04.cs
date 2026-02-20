@@ -5,7 +5,7 @@ public class WaveSpawnManagerExam04 : MonoBehaviour
     public Wave[] waveConfigurations;
     public WaveController waveController;
 
-    public bool enableWaveCycling;
+    public bool enableWaveCycling = false;
 
     private int currentWave = 0;
     private float waveEndTime = 0f;
@@ -27,7 +27,16 @@ public class WaveSpawnManagerExam04 : MonoBehaviour
             currentWave++;
             if (currentWave >= waveConfigurations.Length)
             {
-                Debug.Log("All waves completed!");
+                if (enableWaveCycling == true)
+                {
+                    Debug.Log("enableWaveCycling !!");
+                    currentWave = 0;
+                }
+                else
+                {
+                    Debug.Log("All waves completed!");
+                }
+               
             }
             else
             {
